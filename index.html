@@ -24,17 +24,24 @@
     .glow-btn { animation: glow 1.5s infinite; transition: transform 0.3s; }
     .glow-btn:hover { transform: scale(1.1); }
     
-    /* BRANDED FIREWORK */
     .kinz-firework { position: fixed; font-size: 24px; pointer-events: none; z-index: 999; animation: brandExplode 1.5s ease-out forwards; filter: drop-shadow(0 0 10px #FFD700); }
-    
-    /* GOLD THREAD TRAIL */
     .thread-trail { position: fixed; width: 8px; height: 8px; background: radial-gradient(circle, #FFD700, #D4AF37); border-radius: 50%; pointer-events: none; z-index: 1; animation: threadFade 1s ease-out forwards; box-shadow: 0 0 8px #FFD700; }
     
-    /* LIVELY ANIMALS */
     .animal { position: fixed; z-index:2; font-size: 70px; filter: drop-shadow(0 0 15px #FFD700); }
     .lion { bottom: 8%; animation: walkFast 8s linear infinite, bounce 1s ease-in-out infinite; }
     .cat { bottom: 12%; right: 5%; animation: sewWild 0.6s ease-in-out infinite; }
     .bird { top: 5%; animation: flyCrazy 12s linear infinite; }
+    
+    /* 3-PIC GALLERY */
+    .gallery-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:25px; max-width:1200px; margin:40px auto; }
+    @media(max-width: 900px){ .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item { position:relative; overflow:hidden; border-radius:15px; border:2px solid #D4AF37; background:#111; transition:0.4s; cursor:pointer; }
+    .gallery-item:hover { transform:translateY(-10px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
+    .gallery-item img { width:100%; height:400px; object-fit:cover; transition:0.5s; }
+    .gallery-item:hover img { transform:scale(1.1); }
+    .gallery-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,0.9)); padding:20px; }
+    .gallery-caption h4 { color:#D4AF37; margin:0; font-size:20px; }
+    .gallery-caption p { color:#FFF; margin:5px 0 0; font-size:14px; }
     
     body { 
       margin:0; 
@@ -76,176 +83,98 @@
 
 <div id="particles"></div>
 
-<!-- LIVELY CARTOON ANIMALS -->
 <div class="animal lion" id="kingLion">🦁</div>
 <div class="animal cat">🐱</div>
 <div class="animal bird">🦅</div>
 
 <!-- HERO SECTION -->
 <div style="text-align:center; padding:140px 20px 120px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; z-index:1;">
-  
   <h1 class="fade-in shiny-text" style="font-size:65px; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
   <p class="fade-in" style="font-size:24px; transition-delay:0.3s;">Stitched To Perfection</p>
   <p class="fade-in" style="font-size:18px; color:#ccc; transition-delay:0.5s;">FIND YOUR PERFECT STYLE IN 30 SECONDS</p>
-  
   <a href="https://forms.gle/8U4T38DMSvB8oPRv6" target="_blank" id="collectionBtn" class="fade-in glow-btn" 
   style="background:#D4AF37; color:#000; padding:18px 45px; font-weight:bold; margin-top:30px; border-radius:50px; transition-delay:0.7s; text-decoration:none; font-size:18px;">
   ✨ FIND YOUR PERFECT STYLE IN 30 SECONDS
   </a>
 </div>
 
-<!-- WHY CHOOSE US - BLACK BACKGROUND -->
+<!-- OUR COLLECTION GALLERY - 3 PICS -->
 <div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1;">
-  <h2 style="font-size:36px; margin-bottom:50px; color:#D4AF37;">WHY CHOOSE KINZ CATCHET</h2>
+  <h2 style="font-size:36px; margin-bottom:15px; color:#D4AF37;">OUR COLLECTION</h2>
+  <p style="color:#ccc; font-size:18px; margin-bottom:40px;">Signature Pieces. Tailored for Kings.</p>
   
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="suit1.jpg" alt="Royal Agbada">
+      <div class="gallery-caption">
+        <h4>Royal Agbada</h4>
+        <p>Hand embroidered. Premium damask.</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="suit2.jpg" alt="Executive Suit">
+      <div class="gallery-caption">
+        <h4>Executive Suit</h4>
+        <p>Italian fabric. Perfect fit.</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="suit3.jpg" alt="Senator Wear">
+      <div class="gallery-caption">
+        <h4>Senator Wear</h4>
+        <p>Turkish wool. Luxury finish.</p>
+      </div>
+    </div>
+  </div>
+  
+  <p style="color:#D4AF37; margin-top:30px;">More pieces coming soon 👑</p>
+</div>
+
+<!-- WHY CHOOSE US -->
+<div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1; border-top:1px solid #222;">
+  <h2 style="font-size:36px; margin-bottom:50px; color:#D4AF37;">WHY CHOOSE KINZ CATCHET</h2>
   <div style="display:flex; gap:30px; justify-content:center; flex-wrap:wrap; max-width:1200px; margin:auto;">
-    
-    <div class="feature-box" style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37; animation: fadeInUp 1s ease-out;">
-      <div style="font-size:50px;">✂️</div>
-      <h3 style="color:#D4AF37; font-size:22px;">Hand Tailored</h3>
-      <p style="color:#FFF;">Every piece is measured and cut to fit you perfectly. No guesswork.</p>
-    </div>
-    
-    <div class="feature-box" style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37; animation: fadeInUp 1s ease-out 0.2s both;">
-      <div style="font-size:50px;">👑</div>
-      <h3 style="color:#D4AF37; font-size:22px;">Premium Fabric</h3>
-      <p style="color:#FFF;">We use only the finest Italian and Turkish fabrics for that royal feel.</p>
-    </div>
-    
-    <div class="feature-box" style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37; animation: fadeInUp 1s ease-out 0.4s both;">
-      <div style="font-size:50px;">🚚</div>
-      <h3 style="color:#D4AF37; font-size:22px;">Nationwide Delivery</h3>
-      <p style="color:#FFF;">From Abia to anywhere in Nigeria. We deliver to your door.</p>
-    </div>
-    
+    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">✂️</div><h3 style="color:#D4AF37;">Hand Tailored</h3><p style="color:#FFF;">Perfect fit. No guesswork.</p></div>
+    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">👑</div><h3 style="color:#D4AF37;">Premium Fabric</h3><p style="color:#FFF;">Italian & Turkish fabrics.</p></div>
+    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">🚚</div><h3 style="color:#D4AF37;">Nationwide Delivery</h3><p style="color:#FFF;">We deliver to your door.</p></div>
   </div>
 </div>
 
-<!-- TESTIMONIALS - BLACK BACKGROUND -->
+<!-- TESTIMONIALS -->
 <div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1; border-top:1px solid #222;">
   <h2 style="font-size:36px; margin-bottom:40px; color:#D4AF37;">WHAT OUR CLIENTS SAY</h2>
-  
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;">
-    <p style="color:#FFF; font-size:18px; font-style:italic;">"Best tailor in Nigeria. The fit is crazy! Kinz Catchet is the real deal."</p>
-    <b style="color:#D4AF37; font-size:16px;">- Chinedu L, Abia</b>
-  </div>
-  
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;">
-    <p style="color:#FFF; font-size:18px; font-style:italic;">"My wedding agbada was superb. Everyone was asking who made it."</p>
-    <b style="color:#D4AF37; font-size:16px;">- Tunde A, Abuja</b>
-  </div>
-  
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;">
-    <p style="color:#FFF; font-size:18px; font-style:italic;">"Quality and class. You can see it in every stitch."</p>
-    <b style="color:#D4AF37; font-size:16px;">- Emeka O, Lagos</b>
-  </div>
-  
+  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"Best tailor in Nigeria. The fit is crazy!"</p><b style="color:#D4AF37;">- Chinedu L, Abia</b></div>
+  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"My wedding agbada was superb."</p><b style="color:#D4AF37;">- Tunde A, Abuja</b></div>
+  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"Quality in every stitch."</p><b style="color:#D4AF37;">- Emeka O, Lagos</b></div>
 </div>
 
-<!-- CONTACT + INSTAGRAM + QR SECTION -->
+<!-- CONTACT -->
 <div style="background:#111; padding:80px 20px; text-align:center; position:relative; z-index:1;">
   <h2 style="font-size:36px; margin-bottom:20px; color:#D4AF37;">LET'S CONNECT</h2>
-  <p style="color:#FFF; margin-bottom:40px; font-size:18px;">Ready for your perfect fit? Hit us up</p>
-  
-  <!-- UPDATE THESE LINKS WITH YOUR REAL CONTACT -->
-  <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">📱 WhatsApp Us</a>
+  <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="social-btn">📱 WhatsApp Us</a>
   <a href="https://instagram.com/kinzcatchet" target="_blank" class="social-btn">📸 Instagram</a>
-  <a href="mailto:kinzcatchet@gmail.com" class="social-btn">✉️ Email Us</a>
-  
-  <!-- QR CODE BOX -->
   <div style="background:#000; padding:30px; margin:40px auto; max-width:350px; border-radius:20px; border:3px solid #D4AF37;">
-    <h3 style="color:#D4AF37; margin-bottom:20px; font-size:24px;">Scan To Follow Us</h3>
-    <img src="ig-qr.png" alt="Instagram QR Code" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
-    <p style="color:#FFF; font-size:16px; margin-top:15px;">@kinzcatchet</p>
+    <h3 style="color:#D4AF37;">Scan To Follow Us</h3>
+    <img src="ig-qr.png" alt="IG QR" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
+    <p style="color:#FFF;">@kinzcatchet</p>
   </div>
-  
-  <p style="color:#FFF; margin-top:30px; font-size:16px;">📍 Location: Abia State, Nigeria</p>
+  <p style="color:#FFF;">📍 Abia State, Nigeria</p>
 </div>
 
-<!-- FOOTER -->
-<div style="background:#000; text-align:center; padding:30px 20px; border-top:1px solid #D4AF37; position:relative; z-index:1;">
-  <p style="color:#D4AF37;">© 2026 Kinz Catchet. Luxury Tailoring.</p>
-</div>
+<div style="background:#000; text-align:center; padding:30px 20px; border-top:1px solid #D4AF37;"><p style="color:#D4AF37;">© 2026 Kinz Catchet. Luxury Tailoring.</p></div>
 
-<!-- AUDIO -->
 <audio id="crownSound" src="https://cdn.pixabay.com/audio/2025/04/08/audio_3b0a1e7b2b.mp3"></audio>
 <audio id="whooshSound" src="https://cdn.pixabay.com/audio/2025/04/01/audio_1c2d3e4f5a.mp3"></audio>
 
 <script>
-  // 1. FLOATING GOLD PARTICLES
-  function createParticles() {
-    const container = document.getElementById('particles');
-    for(let i = 0; i < 50; i++) {
-      let particle = document.createElement('div');
-      particle.className = 'float-particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 4 + 's';
-      container.appendChild(particle);
-    }
-  }
-  createParticles();
-  
-  // 2. BRANDED KINZ FIREWORKS
-  function createKinzFirework(x, y) {
-    const brandIcons = ['👑', '💎', '✨', '🧵', '👔'];
-    const sound = document.getElementById('crownSound');
-    sound.volume = 0.3;
-    sound.currentTime = 0;
-    sound.play().catch(()=>{});
-    
-    for(let i = 0; i < 12; i++) {
-      let fw = document.createElement('div');
-      fw.className = 'kinz-firework';
-      fw.innerHTML = brandIcons[Math.floor(Math.random() * brandIcons.length)];
-      fw.style.left = x + 'px';
-      fw.style.top = y + 'px';
-      fw.style.transform = `translate(${Math.cos(i * 30 * Math.PI / 180) * 120}px, ${Math.sin(i * 30 * Math.PI / 180) * 120}px)`;
-      document.body.appendChild(fw);
-      setTimeout(() => fw.remove(), 1500);
-    }
-  }
-  
-  // 3. GOLD THREAD TRAIL FROM LION
-  function createThread(x, y) {
-    let thread = document.createElement('div');
-    thread.className = 'thread-trail';
-    thread.style.left = x + 'px';
-    thread.style.top = y + 'px';
-    document.body.appendChild(thread);
-    setTimeout(() => thread.remove(), 1000);
-  }
-  
-  const lion = document.getElementById('kingLion');
-  setInterval(() => {
-    const rect = lion.getBoundingClientRect();
-    createThread(rect.left + 40, rect.top + 40);
-  }, 100);
-  
-  // 4. AUTO BRANDED FIREWORKS ON LOAD
-  window.addEventListener('load', () => { 
-    document.querySelectorAll('.fade-in').forEach((el, i) => { 
-      setTimeout(() => el.classList.add('show'), i * 300); 
-    });
-    
-    setInterval(() => {
-      createKinzFirework(Math.random() * window.innerWidth, Math.random() * window.innerHeight * 0.5);
-    }, 3000);
-    
-    setTimeout(() => {
-      createKinzFirework(window.innerWidth/2, window.innerHeight/2.5);
-    }, 1800);
-  });
-  
-  // 5. SOUND + FIREWORKS ON BUTTON HOVER
-  document.getElementById('collectionBtn').addEventListener('mouseenter', (e) => {
-    const rect = e.target.getBoundingClientRect();
-    const whoosh = document.getElementById('whooshSound');
-    whoosh.volume = 0.2;
-    whoosh.currentTime = 0;
-    whoosh.play().catch(()=>{});
-    createKinzFirework(rect.left + rect.width/2, rect.top + rect.height/2);
-  });
+  function createParticles(){const c=document.getElementById('particles');for(let i=0;i<50;i++){let p=document.createElement('div');p.className='float-particle';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.animationDelay=Math.random()*4+'s';c.appendChild(p);}}createParticles();
+  function createKinzFirework(x,y){const i=['👑','💎','✨','🧵','👔'];const s=document.getElementById('crownSound');s.volume=0.3;s.currentTime=0;s.play().catch(()=>{});for(let j=0;j<12;j++){let f=document.createElement('div');f.className='kinz-firework';f.innerHTML=i[Math.floor(Math.random()*i.length)];f.style.left=x+'px';f.style.top=y+'px';f.style.transform=`translate(${Math.cos(j*30*Math.PI/180)*120}px,${Math.sin(j*30*Math.PI/180)*120}px)`;document.body.appendChild(f);setTimeout(()=>f.remove(),1500);}}
+  function createThread(x,y){let t=document.createElement('div');t.className='thread-trail';t.style.left=x+'px';t.style.top=y+'px';document.body.appendChild(t);setTimeout(()=>t.remove(),1000);}
+  const lion=document.getElementById('kingLion');setInterval(()=>{const r=lion.getBoundingClientRect();createThread(r.left+40,r.top+40);},100);
+  window.addEventListener('load',()=>{document.querySelectorAll('.fade-in').forEach((e,i)=>{setTimeout(()=>e.classList.add('show'),i*300);});setInterval(()=>{createKinzFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight*0.5);},3000);setTimeout(()=>{createKinzFirework(window.innerWidth/2,window.innerHeight/2.5);},1800);});
+  document.getElementById('collectionBtn').addEventListener('mouseenter',(e)=>{const r=e.target.getBoundingClientRect();const w=document.getElementById('whooshSound');w.volume=0.2;w.currentTime=0;w.play().catch(()=>{});createKinzFirework(r.left+r.width/2,r.top+r.height/2);});
 </script>
 
 </body>
