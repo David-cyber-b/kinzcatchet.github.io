@@ -32,17 +32,6 @@
     .cat { bottom: 12%; right: 5%; animation: sewWild 0.6s ease-in-out infinite; }
     .bird { top: 5%; animation: flyCrazy 12s linear infinite; }
     
-    /* 3-PIC GALLERY */
-    .gallery-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:25px; max-width:1200px; margin:40px auto; }
-    @media(max-width: 900px){ .gallery-grid { grid-template-columns: 1fr; } }
-    .gallery-item { position:relative; overflow:hidden; border-radius:15px; border:2px solid #D4AF37; background:#111; transition:0.4s; cursor:pointer; }
-    .gallery-item:hover { transform:translateY(-10px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
-    .gallery-item img { width:100%; height:400px; object-fit:cover; transition:0.5s; }
-    .gallery-item:hover img { transform:scale(1.1); }
-    .gallery-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,0.9)); padding:20px; }
-    .gallery-caption h4 { color:#D4AF37; margin:0; font-size:20px; }
-    .gallery-caption p { color:#FFF; margin:5px 0 0; font-size:14px; }
-    
     body { 
       margin:0; 
       font-family:'Georgia', serif; 
@@ -92,44 +81,11 @@
   <h1 class="fade-in shiny-text" style="font-size:65px; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
   <p class="fade-in" style="font-size:24px; transition-delay:0.3s;">Stitched To Perfection</p>
   <p class="fade-in" style="font-size:18px; color:#ccc; transition-delay:0.5s;">FIND YOUR PERFECT STYLE IN 30 SECONDS</p>
-  <a href="https://forms.gle/8U4T38DMSvB8oPRv6" target="_blank" id="collectionBtn" class="fade-in glow-btn" 
+  
+  <a href="collection.html" id="collectionBtn" class="fade-in glow-btn" 
   style="background:#D4AF37; color:#000; padding:18px 45px; font-weight:bold; margin-top:30px; border-radius:50px; transition-delay:0.7s; text-decoration:none; font-size:18px;">
-  ✨ FIND YOUR PERFECT STYLE IN 30 SECONDS
+  ✨ VIEW OUR COLLECTION
   </a>
-</div>
-
-<!-- OUR COLLECTION GALLERY - 3 PICS -->
-<div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1;">
-  <h2 style="font-size:36px; margin-bottom:15px; color:#D4AF37;">OUR COLLECTION</h2>
-  <p style="color:#ccc; font-size:18px; margin-bottom:40px;">Signature Pieces. Tailored for Kings.</p>
-  
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="suit1.jpg" alt="Royal Agbada">
-      <div class="gallery-caption">
-        <h4>Royal Agbada</h4>
-        <p>Hand embroidered. Premium damask.</p>
-      </div>
-    </div>
-    
-    <div class="gallery-item">
-      <img src="suit2.jpg" alt="Executive Suit">
-      <div class="gallery-caption">
-        <h4>Executive Suit</h4>
-        <p>Italian fabric. Perfect fit.</p>
-      </div>
-    </div>
-    
-    <div class="gallery-item">
-      <img src="suit3.jpg" alt="Senator Wear">
-      <div class="gallery-caption">
-        <h4>Senator Wear</h4>
-        <p>Turkish wool. Luxury finish.</p>
-      </div>
-    </div>
-  </div>
-  
-  <p style="color:#D4AF37; margin-top:30px;">More pieces coming soon 👑</p>
 </div>
 
 <!-- WHY CHOOSE US -->
@@ -150,19 +106,26 @@
   <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"Quality in every stitch."</p><b style="color:#D4AF37;">- Emeka O, Lagos</b></div>
 </div>
 
-<!-- CONTACT -->
+<!-- CONTACT + QR CODE SECTION - THIS WAS MISSING -->
 <div style="background:#111; padding:80px 20px; text-align:center; position:relative; z-index:1;">
   <h2 style="font-size:36px; margin-bottom:20px; color:#D4AF37;">LET'S CONNECT</h2>
-  <a href="https://wa.me/234XXXXXXXXXX" target="_blank" class="social-btn">📱 WhatsApp Us</a>
+  <p style="color:#FFF; margin-bottom:40px; font-size:18px;">Ready for your perfect fit? Hit us up</p>
+  
+  <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">📱 WhatsApp Us</a>
   <a href="https://instagram.com/kinzcatchet" target="_blank" class="social-btn">📸 Instagram</a>
+  <a href="mailto:kinzcatchet@gmail.com" class="social-btn">✉️ Email Us</a>
+  
+  <!-- QR CODE BOX -->
   <div style="background:#000; padding:30px; margin:40px auto; max-width:350px; border-radius:20px; border:3px solid #D4AF37;">
-    <h3 style="color:#D4AF37;">Scan To Follow Us</h3>
-    <img src="ig-qr.png" alt="IG QR" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
-    <p style="color:#FFF;">@kinzcatchet</p>
+    <h3 style="color:#D4AF37; margin-bottom:20px; font-size:24px;">Scan To Follow Us</h3>
+    <img src="ig-qr.png" alt="Instagram QR Code" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
+    <p style="color:#FFF; font-size:16px; margin-top:15px;">@kinzcatchet</p>
   </div>
-  <p style="color:#FFF;">📍 Abia State, Nigeria</p>
+  
+  <p style="color:#FFF; margin-top:30px; font-size:16px;">📍 Location: Abia State, Nigeria</p>
 </div>
 
+<!-- FOOTER -->
 <div style="background:#000; text-align:center; padding:30px 20px; border-top:1px solid #D4AF37;"><p style="color:#D4AF37;">© 2026 Kinz Catchet. Luxury Tailoring.</p></div>
 
 <audio id="crownSound" src="https://cdn.pixabay.com/audio/2025/04/08/audio_3b0a1e7b2b.mp3"></audio>
