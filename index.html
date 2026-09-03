@@ -1,132 +1,99 @@
 
+David Paul <davidpaul5503@gmail.com>
+3:05 PM (0 minutes ago)
+to me
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinz Catchet | Luxury Tailoring</title>
-  
+  <title>KINZ CATCHET | Luxury Nigerian Menswear</title>
   <style>
-    body {
-      background-color: #000;
-      color: #FFFFFF;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    h1, h2, h3 {
-      color: #D4AF37;
-    }
-    a {
-      color: #D4AF37;
-      text-decoration: none;
-    }
-    .social-btn {
-      display:inline-block; 
-      background:#111; 
-      padding:15px 25px; 
-      margin:10px; 
-      border-radius:10px; 
-      border:1px solid #D4AF37;
-      transition:0.3s;
-    }
-    .social-btn:hover {
-      background:#D4AF37; 
-      color:#000;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+    @keyframes glow { 0% { box-shadow: 0 0 5px #D4AF37; } 50% { box-shadow: 0 0 20px #D4AF37; } 100% { box-shadow: 0 0 5px #D4AF37; } }
+    
+    .fade-in { opacity:0; transform:translateY(30px); transition: all 1s ease-out; }
+    .fade-in.show { opacity:1; transform:translateY(0); }
+    .float-particle { position: fixed; z-index:0; width: 4px; height: 4px; background: #D4AF37; border-radius: 50%; animation: float 7s infinite ease-in-out; }
+    .glow-btn { animation: glow 2s infinite; }
+    body { margin:0; font-family:'Georgia', serif; background:#000; color:#fff; overflow-x:hidden; }
+    a { text-decoration:none; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER / HERO SECTION -->
-  <div style="text-align:center; padding:80px 20px; background:#000;">
-    <h1 style="font-size:48px;">KINZ CATCHET</h1>
-    <p style="font-size:18px; color:#FFF;">Stitched To Perfection</p>
-    
-    <!-- QUIZ BUTTON START -->
-    <div style="text-align:center; margin:40px 0;">
-      <a href="https://forms.gle/8U4T38DMSvB8oPRv6" target="_blank" style="background:linear-gradient(135deg, #D4AF37, #B8860B); color:black; padding:18px 35px; border-radius:12px; text-decoration:none; font-weight:bold; font-size:18px; display:inline-block; box-shadow:0 4px 15px rgba(212,175,55,0.3);">
-        ✨ FIND YOUR PERFECT STYLE IN 30 SECONDS
-      </a>
-    </div>
-    <!-- QUIZ BUTTON END -->
-    <a href="collection.html"style="background:#111;color:#D4AF37;padding:15px 30px;border-radius:10px;text-decoration:none;font-weight:bold;border:2px solid #D4AF37;display:inline-block;margin-top:20px;">
-      🎁VIEW OUR COLLECTION
-    </a>
-    
-  </div>
+<div id="particles"></div>
 
-  <!-- WHY CHOOSE US - BLACK BACKGROUND -->
-  <div style="background:#000; padding:60px 20px; text-align:center;">
-    <h2 style="font-size:32px; margin-bottom:50px; color:#D4AF37;">WHY CHOOSE KINZ CATCHET</h2>
-    
-    <div style="display:flex; gap:30px; justify-content:center; flex-wrap:wrap;">
-      
-      <div class="feature-box" style="max-width:250px; background:#111; padding:25px; border-radius:12px; border:1px solid #D4AF37;">
-        <div style="font-size:40px;">✂️</div>
-        <h3 style="color:#D4AF37;">Hand Tailored</h3>
-        <p style="color:#FFF;">Every piece is measured and cut to fit you perfectly. No guesswork.</p>
-      </div>
-      
-      <div class="feature-box" style="max-width:250px; background:#111; padding:25px; border-radius:12px; border:1px solid #D4AF37;">
-        <div style="font-size:40px;">👑</div>
-        <h3 style="color:#D4AF37;">Premium Fabric</h3>
-        <p style="color:#FFF;">We use only the finest Italian and Turkish fabrics for that royal feel.</p>
-      </div>
-      
-      <div class="feature-box" style="max-width:250px; background:#111; padding:25px; border-radius:12px; border:1px solid #D4AF37;">
-        <div style="font-size:40px;">🚚</div>
-        <h3 style="color:#D4AF37;">Nationwide Delivery</h3>
-        <p style="color:#FFF;">From Abia to anywhere in Nigeria. We deliver to your door.</p>
-      </div>
-      
-    </div>
-  </div>
+<!-- NAV -->
+<div style="position:fixed; top:0; width:100%; background:rgba(0,0,0,0.8); padding:20px; z-index:999; text-align:center;">
+  <a href="index.html" style="color:#D4AF37; margin:0 15px; font-weight:bold;">HOME</a>
+  <a href="collection.html" style="color:#fff; margin:0 15px;">COLLECTION</a>
+  <a href="#about" style="color:#fff; margin:0 15px;">ABOUT</a>
+  <a href="#contact" style="color:#fff; margin:0 15px;">CONTACT</a>
+</div>
 
-  <!-- TESTIMONIALS - BLACK BACKGROUND -->
-  <div style="background:#000; padding:60px 20px; text-align:center;">
-    <h2 style="font-size:32px; margin-bottom:40px; color:#D4AF37;">WHAT OUR CLIENTS SAY</h2>
-    
-    <div style="background:#111; padding:25px; margin:15px auto; max-width:500px; border-radius:10px; border:1px solid #D4AF37;">
-      <p style="color:#FFF; font-size:16px;">"Best tailor in Nigeria. The fit is crazy! Kinz Catchet is the real deal."</p>
-      <b style="color:#D4AF37;">- Chinedu L, Abia</b>
-    </div>
-    
-    <div style="background:#111; padding:25px; margin:15px auto; max-width:500px; border-radius:10px; border:1px solid #D4AF37;">
-      <p style="color:#FFF; font-size:16px;">"My wedding agbada was superb. Everyone was asking who made it."</p>
-      <b style="color:#D4AF37;">- Tunde A, Abuja</b>
-    </div>
-    
-    <div style="background:#111; padding:25px; margin:15px auto; max-width:500px; border-radius:10px; border:1px solid #D4AF37;">
-      <p style="color:#FFF; font-size:16px;">"Quality and class. You can see it in every stitch."</p>
-      <b style="color:#D4AF37;">- Emeka O, Lagos</b>
-    </div>
-    
-  </div>
+<!-- HERO -->
+<div style="text-align:center; padding:140px 20px 120px; background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner.jpg') center/cover; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; z-index:1;">
+  <h1 class="fade-in" style="font-size:65px; color:#D4AF37; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
+  <p class="fade-in" style="font-size:24px; transition-delay:0.3s;">Luxury Nigerian Menswear</p>
+  <p class="fade-in" style="font-size:18px; color:#ccc; transition-delay:0.5s;">Tailored in Lagos. Worn by Kings.</p>
+  <a href="collection.html" class="fade-in glow-btn" 
+  style="background:#D4AF37; color:#000; padding:18px 45px; font-weight:bold; margin-top:30px; border-radius:50px; transition-delay:0.7s;">
+  VIEW COLLECTION
+  </a>
+</div>
 
-  <!-- CONTACT + INSTAGRAM + QR SECTION -->
-  <div style="background:#111; padding:60px 20px; text-align:center;">
-    <h2 style="font-size:32px; margin-bottom:20px; color:#D4AF37;">LET'S CONNECT</h2>
-    <p style="color:#FFF; margin-bottom:30px;">Ready for your perfect fit? Hit us up</p>
-    
-    <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">📱 WhatsApp Us</a>
-    <a href="https://instagram.com/kinzcatchet" target="_blank" class="social-btn">📸 Instagram</a>
-    <a href="mailto:kinzcatchet@gmail.com" class="social-btn">✉️ Email Us</a>
-    
-    <!-- QR CODE BOX -->
-    <div style="background:#000; padding:25px; margin:30px auto; max-width:300px; border-radius:15px; border:2px solid #D4AF37;">
-      <h3 style="color:#D4AF37; margin-bottom:15px;">Scan To Follow Us</h3>
-      <img src="ig-qr.png" alt="Instagram QR Code" style="width:200px; height:200px; border-radius:10px; background:#FFF; padding:10px;">
-      <p style="color:#FFF; font-size:14px; margin-top:10px;">@kinzcatchet</p>
-    </div>
-    
-    <p style="color:#FFF; margin-top:20px;">📍 Location: Abia State, Nigeria</p>
-  </div>
+<!-- ABOUT -->
+<div id="about" style="padding:100px 20px; text-align:center; background:#111; position:relative; z-index:1;">
+  <h2 class="fade-in" style="font-size:40px; color:#D4AF37;">Crafted For The Modern King</h2>
+  <p class="fade-in" style="color:#ccc; max-width:700px; margin:20px auto; font-size:18px; transition-delay:0.2s;">
+  KINZ CATCHET is a Nigerian luxury menswear brand. We blend traditional African tailoring with modern silhouettes. 
+  Every piece is handcrafted in Lagos using premium fabrics for men who lead.
+  </p>
+</div>
 
-  <!-- FOOTER -->
-  <div style="background:#000; text-align:center; padding:30px 20px; border-top:1px solid #D4AF37;">
-    <p style="color:#D4AF37;">© 2026 Kinz Catchet. Luxury Tailoring.</p>
+<!-- CONTACT WITH QR -->
+<div id="contact" style="background:#D4AF37; color:#000; text-align:center; padding:80px 20px; position:relative; z-index:1;">
+  <h2 class="fade-in" style="font-size:36px;">Order Now</h2>
+  <p class="fade-in" style="font-size:18px; transition-delay:0.2s;">Scan to Chat on WhatsApp or DM us</p>
+  
+  <!-- QR CODE -->
+  <div class="fade-in" style="margin:30px auto; background:#fff; padding:15px; border-radius:15px; display:inline-block; transition-delay:0.3s;">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/2348107981055" 
+    style="width:200px; height:200px; display:block;">
+    <p style="margin:10px 0 0; font-size:14px; font-weight:bold;">Scan to WhatsApp Us</p>
   </div>
+  
+  <p class="fade-in" style="font-size:20px; margin:10px 0; transition-delay:0.4s;">📱 +234 810 798 1055</p>
+  <p class="fade-in" style="font-size:20px; transition-delay:0.5s;">📧 info@kinzcatchet.com</p>
+  
+  <a href="https://instagram.com/kinzcatchet" target="_blank" class="fade-in" 
+  style="display:inline-block; background:#000; color:#D4AF37; padding:15px 30px; margin-top:20px; border-radius:50px; font-weight:bold; transition-delay:0.6s;">
+  FOLLOW @kinzcatchet
+  </a>
+</div>
+
+<script>
+  function createParticles() {
+    const container = document.getElementById('particles');
+    for(let i = 0; i < 25; i++) {
+      let particle = document.createElement('div');
+      particle.className = 'float-particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      container.appendChild(particle);
+    }
+  }
+  createParticles();
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => { document.querySelectorAll('.fade-in').forEach((el, i) => { setTimeout(() => el.classList.add('show'), i * 200); }) });
+</script>
 
 </body>
 </html>
