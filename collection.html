@@ -1,73 +1,112 @@
+
+David Paul <davidpaul5503@gmail.com>
+4:17 PM (0 minutes ago)
+to me
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>premium Collection | Kinz Catchet</title>
-  <meta name="viewport" content="width=device=width,initial-scale=1.0">
-  <style>https://github.com/David-cyber-b/kinzcatchet.github.io/edit/main/collection.html
-    body {background:linear-gradient(135deg, #000 0%, #1a1a1a 100%);color: #fff;font-family: 'Georgia',serif;text-align:center;margin:0;}
-    h1[color: #D4AF37;font-size:40px;padding-top:40px;}
-    .grid[display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;padding:40px;max-width:1200px;margin::auto;}
-    .item:background;#111;border:1px solid #D4AF37;border-radius:15px;padding:15px;transition:0.3s;}
-    .item:hover{transform:translateY(-5px);box-shadow:0 0 20px #D4AF37;}
-    .item img[width:100%;border-radius:10px;}
-    .item h3{color:#D4AF37;margin:10px0;}
-    .price{color{#FFD700;font-size:20px;font-weight:bold;}
-    .order-btn{background:#25D366;color:#fff;padding:10px 20px;text-decoration:none;border-radius:20px;display:inline-block;margin-top:10px;}
-    nav a{color:#D4AF37;margin:0 15px;text-decoration:none;}
-  </style
-  </head>
-  </body>
-    <nav style="padding:20px;">
-     <a href="index.html">Home</a>
-    <a href="collection.html">Collection</a>
-    <a href="contact.html">Contact</a>
-    </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OUR COLLECTION | KINZ CATCHET</title>
+  <style>
+    @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } 100% { transform: translateY(0px) rotate(360deg); } }
+    @keyframes bgMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes textShine { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+    @keyframes brandExplode { 0% { transform: scale(0) rotate(0deg); opacity: 1; } 100% { transform: scale(2.5) rotate(360deg); opacity: 0; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .float-particle { position: fixed; z-index:0; width: 6px; height: 6px; background: linear-gradient(45deg, #D4AF37, #FFD700); border-radius: 50%; animation: float 4s infinite ease-in-out; }
+    .kinz-firework { position: fixed; font-size: 24px; pointer-events: none; z-index: 999; animation: brandExplode 1.5s ease-out forwards; filter: drop-shadow(0 0 10px #FFD700); }
+    
+    .gallery-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:25px; max-width:1200px; margin:40px auto; padding:0 20px; }
+    @media(max-width: 900px){ .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item { position:relative; overflow:hidden; border-radius:15px; border:2px solid #D4AF37; background:#111; transition:0.4s; animation: fadeInUp 1s ease-out; }
+    .gallery-item:hover { transform:translateY(-10px); box-shadow:0 10px 30px rgba(212,175,55,0.4); }
+    .gallery-item img { width:100%; height:400px; object-fit:cover; transition:0.5s; }
+    .gallery-item:hover img { transform:scale(1.1); }
+    .gallery-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent, rgba(0,0,0,0.9)); padding:20px; }
+    .gallery-caption h4 { color:#D4AF37; margin:0; font-size:20px; }
+    .gallery-caption p { color:#FFF; margin:5px 0 0; font-size:14px; }
+    
+    .shiny-text {
+      background: linear-gradient(90deg, #D4AF37, #FFD700, #FFF, #D4AF37);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShine 3s linear infinite;
+    }
+    
+    .back-btn {
+      display:inline-block;
+      background:#D4AF37;
+      color:#000;
+      padding:12px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+      margin-top:40px;
+      transition:0.3s;
+    }
+    .back-btn:hover { transform:scale(1.1); }
+    
+    body { 
+      margin:0; 
+      font-family:'Georgia', serif; 
+      background: linear-gradient(-45deg, #000, #1a0f00, #000, #2a1a00);
+      background-size: 400% 400%;
+      animation: bgMove 10s ease infinite;
+      color:#fff; 
+      text-align:center;
+      padding:80px 20px;
+      overflow-x:hidden;
+    }
+  </style>
+</head>
+<body>
 
-          
- <h1>PREMIUM COLLECTIONS</h1>
-  <p>Stitched to Perfection. Made for Kings.</P>
+<div id="particles"></div>
 
-  <div class="grid">
-    <div class="item">
-      <img src="product1.jpg"alt="Royal Agbada">
-      <h3>Royal Agbada</h3>
-   <a href="https://wa.me/2348107981055?text=Hello%20I%20want%20Royal%20Agbada"class="order-btn">Order on WhatsApp</a>
+  <h1 class="shiny-text" style="font-size:48px; margin-bottom:15px; position:relative; z-index:1;">OUR COLLECTION</h1>
+  <p style="color:#ccc; font-size:18px; margin-bottom:40px; position:relative; z-index:1;">Signature Pieces. Tailored for Kings.</p>
+  
+  <div class="gallery-grid" style="position:relative; z-index:1;">
+    <div class="gallery-item">
+      <img src="suit1.jpg" alt="Royal Agbada">
+      <div class="gallery-caption">
+        <h4>Royal Agbada</h4>
+        <p>Hand embroidered. Premium damask.</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="suit2.jpg" alt="Executive Suit">
+      <div class="gallery-caption">
+        <h4>Executive Suit</h4>
+        <p>Italian fabric. Perfect fit.</p>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="suit3.jpg" alt="Senator Wear">
+      <div class="gallery-caption">
+        <h4>Senator Wear</h4>
+        <p>Turkish wool. Luxury finish.</p>
+      </div>
+    </div>
   </div>
+  
+  <p style="color:#D4AF37; margin-top:30px; position:relative; z-index:1;">More pieces coming soon 👑</p>
+  
+  <a href="index.html" class="back-btn" style="position:relative; z-index:1;">← BACK TO HOME</a>
 
-  <div class="item">
-   <img src="product2.jpg"alt="Senator suit">
-   <h3>Senator Suit</h3>
-  <p class="price">DM</p>
-  <a href="https://wa.me/2348107981055?text=Hello%20I%20want%20senator%20suit"class="Order on WhatsApp</a>
+<audio id="crownSound" src="https://cdn.pixabay.com/audio/2025/04/08/audio_3b0a1e7b2b.mp3"></audio>
 
-  <div class="item">
-    <img src="product3.jpg"alt=Kaunda suit">
-    <h3>Kaunda suit</h3>
-    <p class="price"DM</p>
-  <a href="https:wa.me/2348107981055?text=Hello%20I%20want%20Kaunda%20suit"class="Order on WhatsApp
-</div>
-</div>
+<script>
+  function createParticles(){const c=document.getElementById('particles');for(let i=0;i<50;i++){let p=document.createElement('div');p.className='float-particle';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.animationDelay=Math.random()*4+'s';c.appendChild(p);}}createParticles();
+  function createKinzFirework(x,y){const i=['👑','💎','✨','🧵','👔'];const s=document.getElementById('crownSound');s.volume=0.3;s.currentTime=0;s.play().catch(()=>{});for(let j=0;j<12;j++){let f=document.createElement('div');f.className='kinz-firework';f.innerHTML=i[Math.floor(Math.random()*i.length)];f.style.left=x+'px';f.style.top=y+'px';f.style.transform=`translate(${Math.cos(j*30*Math.PI/180)*120}px,${Math.sin(j*30*Math.PI/180)*120}px)`;document.body.appendChild(f);setTimeout(()=>f.remove(),1500);}}
+  window.addEventListener('load',()=>{setInterval(()=>{createKinzFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight*0.5);},3000);setTimeout(()=>{createKinzFirework(window.innerWidth/2,window.innerHeight/2.5);},1800);});
+</script>
+
 </body>
 </html>
-           
-
-
-    <h1>ABOUT KINZ CATCHETS</h1>
-    <div class="info">
-      <p>Stitched to Perfection.</p>
-      </p>We craft premium bespoke clothing for kings in Abia,Nigeria.</p>
-      <p>Every stitch is made with exellence.</p>
-    </div>
-
-      <a href="https://wa.me/2348107981055?text=Hello%20Kinz%20Catchet%20I%20want%20to%20make%20an%20order"class="btn">CHAT ON WHATSAPP</a>
-    </div>
-
-
-     <footer>
-       <h3 style="color:#D4AF37;">Kinz Catchet</h3>
-       <p><a href="https://www.instagram.com/Kinz_catchet"target="_blank"style="color:#D4AF37;">@KINZ_CATCHET</a></p>
-       <img src="ig-qr.png"style="width:150px;background:#fff;padding:10px;border-radius:10px;>
-      </footer>
-    </body>
-    </html>
-    
