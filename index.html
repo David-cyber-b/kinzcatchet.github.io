@@ -127,7 +127,7 @@
 <!-- HERO SECTION -->
 <div style="text-align:center; padding:140px 20px 120px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; z-index:1;">
   <div class="clock-container">
-  <div class="clock" id="kinz-clock"></div>
+  <div class="clock" id="kinz-clock">01:29:45PM</div>
   <div class="clock-label">LAGOS TIME</div>
 </div>
   <h1 class="fade-in shiny-text" style="font-size:65px; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
@@ -197,12 +197,13 @@ function updateKinzTime() {
   const time = now.toLocaleTimeString('en-US', { 
     hour: '2-digit', 
     minute: '2-digit',
+    second:'2-digit',/*SECONDS ADDED HERE*/
     hour12: true,
     timeZone: 'Africa/Lagos'
   });
   document.getElementById('kinz-clock').innerHTML = time;
 }
-updateKinzTime();
+updateKinzTime();//run once immediately
 setInterval(updateKinzTime, 1000);
 </script>
 </body>
