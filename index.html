@@ -30,6 +30,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 25px;
+  margin-top:-40px;/* This pulls it up above KINZ CATCHET*/
 }
 
 .clock {
@@ -49,6 +50,7 @@
   text-align: center;
   line-height: 1.4;
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  animation:glow 2s ease-in-out infinite;/*PULSE ADDED*/
 }
 
 .clock-label {
@@ -59,8 +61,18 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+  /*NEW ANIMATION */
+    @keyframe glow{
+      0%,100%{
+       box-shadow:@0 0 20px rgba(212,175,55,0.4);
+      border-color:#D4AF37;
+    }
+     50%{
+       box-shadow:0 0 35px rgba(212,175,55,0.8);
+       border-color:#FFD700
+    }
+    }
     </style>
-    
     .kinz-firework { position: fixed; font-size: 24px; pointer-events: none; z-index: 999; animation: brandExplode 1.5s ease-out forwards; filter: drop-shadow(0 0 10px #FFD700); }
     .thread-trail { position: fixed; width: 8px; height: 8px; background: radial-gradient(circle, #FFD700, #D4AF37); border-radius: 50%; pointer-events: none; z-index: 1; animation: threadFade 1s ease-out forwards; box-shadow: 0 0 8px #FFD700; }
     
