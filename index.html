@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <div class="clock-container">
-  <div class="clock" id="kinz-clock"></div>
-  <div class="clock-label">LAGOS TIME</div>
-</div>
 </div>
   <title>KINZ CATCHET | Luxury Nigerian Menswear</title>
   <style>
+    
     @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } 100% { transform: translateY(0px) rotate(360deg); } }
     @keyframes glow { 0% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; } 50% { box-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700; } 100% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; } }
     @keyframes bounce { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-25px) scale(1.2); } }
@@ -27,6 +24,42 @@
     .float-particle { position: fixed; z-index:0; width: 6px; height: 6px; background: linear-gradient(45deg, #D4AF37, #FFD700); border-radius: 50%; animation: float 4s infinite ease-in-out; }
     .glow-btn { animation: glow 1.5s infinite; transition: transform 0.3s; }
     .glow-btn:hover { transform: scale(1.1); }
+
+    ..clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.clock {
+  width: 90px;
+  height: 90px;
+  border: 3px solid #D4AF37;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0.6) 100%);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D4AF37;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.4;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.clock-label {
+  color: #D4AF37;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+    </style>
     
     .kinz-firework { position: fixed; font-size: 24px; pointer-events: none; z-index: 999; animation: brandExplode 1.5s ease-out forwards; filter: drop-shadow(0 0 10px #FFD700); }
     .thread-trail { position: fixed; width: 8px; height: 8px; background: radial-gradient(circle, #FFD700, #D4AF37); border-radius: 50%; pointer-events: none; z-index: 1; animation: threadFade 1s ease-out forwards; box-shadow: 0 0 8px #FFD700; }
@@ -82,6 +115,10 @@
 
 <!-- HERO SECTION -->
 <div style="text-align:center; padding:140px 20px 120px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; z-index:1;">
+  <div class="clock-container">
+  <div class="clock" id="kinz-clock"></div>
+  <div class="clock-label">LAGOS TIME</div>
+</div>
   <h1 class="fade-in shiny-text" style="font-size:65px; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
   <p class="fade-in" style="font-size:24px; transition-delay:0.3s;">Stitched To Perfection</p>
   <p class="fade-in" style="font-size:18px; color:#ccc; transition-delay:0.5s;">FIND YOUR PERFECT STYLE IN 30 SECONDS</p>
@@ -143,40 +180,6 @@
   window.addEventListener('load',()=>{document.querySelectorAll('.fade-in').forEach((e,i)=>{setTimeout(()=>e.classList.add('show'),i*300);});setInterval(()=>{createKinzFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight*0.5);},3000);setTimeout(()=>{createKinzFirework(window.innerWidth/2,window.innerHeight/2.5);},1800);});
   document.getElementById('collectionBtn').addEventListener('mouseenter',(e)=>{const r=e.target.getBoundingClientRect();const w=document.getElementById('whooshSound');w.volume=0.2;w.currentTime=0;w.play().catch(()=>{});createKinzFirework(r.left+r.width/2,r.top+r.height/2);});
 </script>
-   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.clock {
-  width: 90px;
-  height: 90px;
-  border: 3px solid #D4AF37;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0.6) 100%);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #D4AF37;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
-  line-height: 1.4;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-.clock-label {
-  color: #D4AF37;
-  font-size: 9px;
-  letter-spacing: 2px;
-  margin-top: 8px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-  <script>
    <script>
 function updateKinzTime() {
   const now = new Date();
