@@ -1,210 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</div>
-  <title>KINZ CATCHET | Luxury Nigerian Menswear</title>
-  <style>
-    
-    @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-30px) rotate(180deg); } 100% { transform: translateY(0px) rotate(360deg); } }
-    @keyframes glow { 0% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; } 50% { box-shadow: 0 0 40px #FFD700, 0 0 60px #FFD700; } 100% { box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37; } }
-    @keyframes bounce { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-25px) scale(1.2); } }
-    @keyframes walkFast { 0% { left: -100px; } 100% { left: 110%; } }
-    @keyframes sewWild { 0%, 100% { transform: rotate(-20deg) scale(1); } 50% { transform: rotate(20deg) scale(1.3); } }
-    @keyframes flyCrazy { 0% { top: 5%; left: 0%; } 25% { top: 25%; left: 80%; } 50% { top: 5%; left: 100%; } 75% { top: 40%; left: 20%; } 100% { top: 5%; left: 0%; } }
-    @keyframes bgMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    @keyframes textShine { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
-    @keyframes brandExplode { 0% { transform: scale(0) rotate(0deg); opacity: 1; } 100% { transform: scale(2.5) rotate(360deg); opacity: 0; } }
-    @keyframes threadFade { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(0.3); } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-    
-    .fade-in { opacity:0; transform:translateY(60px) scale(0.8); transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-    .fade-in.show { opacity:1; transform:translateY(0) scale(1); }
-    .float-particle { position: fixed; z-index:0; width: 6px; height: 6px; background: linear-gradient(45deg, #D4AF37, #FFD700); border-radius: 50%; animation: float 4s infinite ease-in-out; }
-    .glow-btn { animation: glow 1.5s infinite; transition: transform 0.3s; }
-    .glow-btn:hover { transform: scale(1.1); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINZ CATCHET | Luxury Nigerian Menswear</title>
+    <style>
+        /* 1. ANIMATED BACKGROUND MOVEMENT */
+        body {
+            background: linear-gradient(45deg, #000000, #D4AF37, #111, #D4AF37);
+            background-size: 400% 400%;
+            animation: gradientShift 18s ease infinite;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        @keyframes gradientShift {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
 
-    ..clock-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-  margin-top:-60px;/* PULLS it up above KINZ CATCHET */
-}
+        /* 2. SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.clock {
-  width: 150px;/* BIGGER CIRCLE */
-  height: 150px;
-  border: 4px solid #D4AF37;/* THICKE GOLD BORDER*/
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0.6) 100%);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #
-  font-size: 22px;/* WAS 13PX-NOW BIGGER*/
-  font-weight: 800;/*BOLDER*/
-  letter-spacing: 2px;
-  text-align: center;
-  line-height: 1.4;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-  animation:glow 2s ease-in-out infinite;
-}
+        /* 3. HOVER EFFECT */
+        .product-card, .social-btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover, .social-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212,175,55,0.4);
+        }
 
-.clock-label {
-  color: #D4AF37;
-  font-size: 12px;/* WAS 9PX-NOW BIGGER*/
-  letter-spacing: 3px;
-  margin-top: 12px;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-  /* NEW ANIMATION */
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    border-color: #D4AF37;
-  }
- 50% {
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.8);/* WAS 35PX */
-    border-color: #FFD700;
-  }
-}
-    .kinz-firework { position: fixed; font-size: 24px; pointer-events: none; z-index: 999; animation: brandExplode 1.5s ease-out forwards; filter: drop-shadow(0 0 10px #FFD700); }
-    .thread-trail { position: fixed; width: 8px; height: 8px; background: radial-gradient(circle, #FFD700, #D4AF37); border-radius: 50%; pointer-events: none; z-index: 1; animation: threadFade 1s ease-out forwards; box-shadow: 0 0 8px #FFD700; }
-    
-    .animal { position: fixed; z-index:2; font-size: 70px; filter: drop-shadow(0 0 15px #FFD700); }
-    .lion { bottom: 8%; animation: walkFast 8s linear infinite, bounce 1s ease-in-out infinite; }
-    .cat { bottom: 12%; right: 5%; animation: sewWild 0.6s ease-in-out infinite; }
-    .bird { top: 5%; animation: flyCrazy 12s linear infinite; }
-    
-    body { 
-      margin:0; 
-      font-family:'Georgia', serif; 
-      background: linear-gradient(-45deg, #000, #1a0f00, #000, #2a1a00);
-      background-size: 400% 400%;
-      animation: bgMove 10s ease infinite;
-      color:#fff; 
-      overflow-x:hidden; 
-    }
-    
-    .shiny-text {
-      background: linear-gradient(90deg, #D4AF37, #FFD700, #FFF, #D4AF37);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textShine 3s linear infinite;
-    }
-    
-    .social-btn {
-      display:inline-block; 
-      background:#111; 
-      padding:15px 25px; 
-      margin:10px; 
-      border-radius:10px; 
-      border:1px solid #D4AF37;
-      transition:0.3s;
-      color:#D4AF37;
-      text-decoration:none;
-      font-weight:bold;
-    }
-    .social-btn:hover {
-      background:#D4AF37; 
-      color:#000;
-    }
-  </style>
+        .social-btn {
+            display: inline-block; 
+            background: #D4AF37; 
+            color: #000; 
+            padding: 15px 30px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            margin: 10px; 
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .gold-text { color: #D4AF37; }
+    </style>
 </head>
 <body>
+    
+    <!-- NAVBAR -->
+    <div style="background: rgba(0,0,0,0.8); padding: 20px; text-align: center; border-bottom: 2px solid #D4AF37; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);">
+        <img src="logo.png.jpg" alt="KINZ CATCHET" style="height: 50px; margin-bottom: 10px;">
+        <h1 style="margin: 0; font-size: 32px;">KINZ <span class="gold-text">CATCHET</span></h1>
+        <p class="gold-text" style="margin: 5px 0; font-size: 18px;">Luxury Nigerian Menswear</p>
+        <!-- CLOCK -->
+        <div id="clock" class="gold-text" style="font-size: 22px; font-weight: bold; margin-top: 10px;"></div>
+    </div>
 
-<div id="particles"></div>
+    <!-- BANNER SECTION -->
+    <div style="text-align: center; padding: 100px 20px; background: url('banner.jpg') no-repeat center center/cover; min-height: 90vh; display: flex; align-items: center; justify-content: center;">
+        <div style="background: rgba(0,0,0,0.75); padding: 50px; border-radius: 20px; display: inline-block; border: 2px solid #D4AF37;" class="reveal">
+            <h2 style="font-size: 48px; margin: 0;">Luxurious Senators. Premium Agbada.</h2>
+            <p style="font-size: 22px; margin: 20px 0;">Handcrafted Excellence. Delivered Nationwide.</p>
+            <div>
+                <a href="#collection" class="social-btn">Shop Collection</a>
+                <a href="#contact" class="social-btn" style="background: transparent; border: 2px solid #D4AF37; color: #D4AF37;">Contact Us</a>
+            </div>
+        </div>
+    </div>
 
-<div class="animal lion" id="kingLion">🦁</div>
-<div class="animal cat">🐱</div>
-<div class="animal bird">🦅</div>
+    <!-- STATS SECTION -->
+    <div style="padding: 60px 20px; background: rgba(0,0,0,0.5);">
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; gap: 20px;">
+            <div class="reveal" style="background: #D4AF37; color: #000; padding: 30px; border-radius: 15px; text-align: center; min-width: 250px;">
+                <h2 style="font-size: 40px; margin: 0;">500+</h2>
+                <p style="font-size: 18px; margin: 5px 0; font-weight: bold;">Luxury Pieces Sold</p>
+            </div>
+            <div class="reveal" style="background: #FFF; color: #000; padding: 30px; border-radius: 15px; text-align: center; min-width: 250px;">
+                <h2 style="font-size: 40px; margin: 0;">2K+</h2>
+                <p style="font-size: 18px; margin: 5px 0; font-weight: bold;">Elite Clients</p>
+            </div>
+            <div class="reveal" style="border: 2px solid #D4AF37; padding: 30px; border-radius: 15px; text-align: center; min-width: 250px;">
+                <h2 style="font-size: 40px; margin: 0;" class="gold-text">48H</h2>
+                <p style="font-size: 18px; margin: 5px 0; font-weight: bold;">Nationwide Delivery</p>
+            </div>
+        </div>
+    </div>
 
-<!-- HERO SECTION -->
-<div style="text-align:center; padding:140px 20px 120px; background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; z-index:1;">
-  <div class="clock-container">
-  <div class="clock" id="kinz-clock">01:29:45PM</div>
-  <div class="clock-label">LAGOS TIME</div>
-</div>
-  <h1 class="fade-in shiny-text" style="font-size:65px; letter-spacing:6px; margin:0;">KINZ CATCHET</h1>
-  <p class="fade-in" style="font-size:24px; transition-delay:0.3s;">Stitched To Perfection</p>
-  <p class="fade-in" style="font-size:18px; color:#ccc; transition-delay:0.5s;">FIND YOUR PERFECT STYLE IN 30 SECONDS</p>
-  
-  <a href="collection.html" id="collectionBtn" class="fade-in glow-btn" 
-  style="background:#D4AF37; color:#000; padding:18px 45px; font-weight:bold; margin-top:30px; border-radius:50px; transition-delay:0.7s; text-decoration:none; font-size:18px;">
-  ✨ VIEW OUR COLLECTION
-  </a>
-</div>
+    <!-- PRODUCTS SECTION -->
+    <div id="collection" style="padding: 80px 20px; text-align: center;">
+        <h2 class="gold-text reveal" style="margin-bottom: 50px; font-size: 40px;">Our Signature Collection</h2>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; max-width: 1300px; margin: 0 auto;">
+            
+            <!-- PRODUCT 1 -->
+            <div class="product-card reveal" style="background: #111; border-radius: 15px; border: 2px solid #D4AF37; max-width: 350px; margin: 20px; overflow: hidden;">
+                <img src="product1.jpg" alt="Premium Agbada" style="width: 100%; height: 380px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="margin: 10px 0; font-size: 22px;">Premium Agbada</h3>
+                    <p style="color: #D4AF37; margin: 5px;">Handwoven Aso Oke fabric. Perfect for weddings and events.</p>
+                    <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- PRODUCT 2 -->
+            <div class="product-card reveal" style="background: #111; border-radius: 15px; border: 2px solid #D4AF37; max-width: 350px; margin: 20px; overflow: hidden;">
+                <img src="product2.jpg" alt="Senator Wear" style="width: 100%; height: 380px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="margin: 10px 0; font-size: 22px;">Luxurious Senator</h3>
+                    <p style="color: #D4AF37; margin: 5px;">Italian fabric. Tailored for the modern king.</p>
+                    <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">Order on WhatsApp</a>
+                </div>
+            </div>
+            
+            <!-- PRODUCT 3 -->
+            <div class="product-card reveal" style="background: #111; border-radius: 15px; border: 2px solid #D4AF37; max-width: 350px; margin: 20px; overflow: hidden;">
+                <img src="product3.jpg" alt="Custom Suit" style="width: 100%; height: 380px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <h3 style="margin: 10px 0; font-size: 22px;">Custom Luxury Wear</h3>
+                    <p style="color: #D4AF37; margin: 5px;">Stitched to perfection. Stand out at any event.</p>
+                    <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">Order on WhatsApp</a>
+                </div>
+            </div>
 
-<!-- WHY CHOOSE US -->
-<div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1; border-top:1px solid #222;">
-  <h2 style="font-size:36px; margin-bottom:50px; color:#D4AF37;">WHY CHOOSE KINZ CATCHET</h2>
-  <div style="display:flex; gap:30px; justify-content:center; flex-wrap:wrap; max-width:1200px; margin:auto;">
-    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">✂️</div><h3 style="color:#D4AF37;">Hand Tailored</h3><p style="color:#FFF;">Perfect fit. No guesswork.</p></div>
-    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">👑</div><h3 style="color:#D4AF37;">Premium Fabric</h3><p style="color:#FFF;">Italian & Turkish fabrics.</p></div>
-    <div style="max-width:300px; background:#111; padding:30px; border-radius:15px; border:2px solid #D4AF37;"><div style="font-size:50px;">🚚</div><h3 style="color:#D4AF37;">Nationwide Delivery</h3><p style="color:#FFF;">We deliver to your door.</p></div>
-  </div>
-</div>
+        </div>
+        <a href="product.html" class="social-btn" style="margin-top: 40px;">View Full Collection</a>
+    </div>
 
-<!-- TESTIMONIALS -->
-<div style="background:#000; padding:80px 20px; text-align:center; position:relative; z-index:1; border-top:1px solid #222;">
-  <h2 style="font-size:36px; margin-bottom:40px; color:#D4AF37;">WHAT OUR CLIENTS SAY</h2>
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"Best tailor in Nigeria. The fit is crazy!"</p><b style="color:#D4AF37;">- Chinedu L, Abia</b></div>
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"My wedding agbada was superb."</p><b style="color:#D4AF37;">- Tunde A, Abuja</b></div>
-  <div style="background:#111; padding:30px; margin:20px auto; max-width:600px; border-radius:15px; border:2px solid #D4AF37;"><p style="color:#FFF; font-size:18px; font-style:italic;">"Quality in every stitch."</p><b style="color:#D4AF37;">- Emeka O, Lagos</b></div>
-</div>
+    <!-- CONTACT + QR CODE SECTION -->
+    <div id="contact" style="background:#111; padding:80px 20px; text-align:center; position:relative; z-index:1; border-top: 2px solid #D4AF37;" class="reveal">
+        <h2 style="font-size:36px; margin-bottom:20px; color:#D4AF37;">LET'S CONNECT</h2>
+        <p style="color:#FFF; margin-bottom:40px; font-size:18px;">Ready for your perfect fit? Hit us up</p>
 
-<!-- CONTACT + QR CODE SECTION - THIS WAS MISSING -->
-<div style="background:#111; padding:80px 20px; text-align:center; position:relative; z-index:1;">
-  <h2 style="font-size:36px; margin-bottom:20px; color:#D4AF37;">LET'S CONNECT</h2>
-  <p style="color:#FFF; margin-bottom:40px; font-size:18px;">Ready for your perfect fit? Hit us up</p>
-  
-  <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">📱 WhatsApp Us</a>
-  <a href="https://instagram.com/kinzcatchet" target="_blank" class="social-btn">📸 Instagram</a>
-  <a href="mailto:kinzcatchet@gmail.com" class="social-btn">✉️ Email Us</a>
-  
-  <!-- QR CODE BOX -->
-  <div style="background:#000; padding:30px; margin:40px auto; max-width:350px; border-radius:20px; border:3px solid #D4AF37;">
-    <h3 style="color:#D4AF37; margin-bottom:20px; font-size:24px;">Scan To Follow Us</h3>
-    <img src="ig-qr.png" alt="Instagram QR Code" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
-    <p style="color:#FFF; font-size:16px; margin-top:15px;">@kinzcatchet</p>
-  </div>
-  
-  <p style="color:#FFF; margin-top:30px; font-size:16px;">📍 Location: Abia State, Nigeria</p>
-</div>
+        <a href="https://wa.me/2348107981055" target="_blank" class="social-btn">📱 WhatsApp Us</a>
+        <a href="https://instagram.com/kinzcatchet" target="_blank" class="social-btn">📸 Instagram</a>
+        <a href="mailto:kinzcatchet@gmail.com" class="social-btn">✉️ Email Us</a>
 
-<!-- FOOTER -->
-<div style="background:#000; text-align:center; padding:30px 20px; border-top:1px solid #D4AF37;"><p style="color:#D4AF37;">© 2026 Kinz Catchet. Luxury Tailoring.</p></div>
+        <!-- QR CODE BOX -->
+        <div style="background:#000; padding:30px; margin:40px auto; max-width:350px; border-radius:20px; border:3px solid #D4AF37;">
+            <h3 style="color:#D4AF37; margin-bottom:20px; font-size:24px;">Scan To Follow Us</h3>
+            <img src="ig-qr.png" alt="Instagram QR Code" style="width:220px; height:220px; border-radius:15px; background:#FFF; padding:15px;">
+            <p style="color:#FFF; font-size:16px; margin-top:15px;">@kinzcatchet</p>
+        </div>
+        
+        <p style="color:#FFF; margin-top:30px; font-size:16px;">📍 Location: Abia State, Nigeria</p>
+    </div>
 
-<audio id="crownSound" src="https://cdn.pixabay.com/audio/2025/04/08/audio_3b0a1e7b2b.mp3"></audio>
-<audio id="whooshSound" src="https://cdn.pixabay.com/audio/2025/04/01/audio_1c2d3e4f5a.mp3"></audio>
+    <!-- FOOTER -->
+    <div style="background: #000; text-align: center; padding: 30px; border-top: 2px solid #D4AF37;">
+        <p style="color: #D4AF37; margin: 0; font-size: 16px;">© 2026 KINZ CATCHET. Luxury Tailoring. Abia State, Nigeria.</p>
+    </div>
 
 <script>
-  function createParticles(){const c=document.getElementById('particles');for(let i=0;i<50;i++){let p=document.createElement('div');p.className='float-particle';p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.animationDelay=Math.random()*4+'s';c.appendChild(p);}}createParticles();
-  function createKinzFirework(x,y){const i=['👑','💎','✨','🧵','👔'];const s=document.getElementById('crownSound');s.volume=0.3;s.currentTime=0;s.play().catch(()=>{});for(let j=0;j<12;j++){let f=document.createElement('div');f.className='kinz-firework';f.innerHTML=i[Math.floor(Math.random()*i.length)];f.style.left=x+'px';f.style.top=y+'px';f.style.transform=`translate(${Math.cos(j*30*Math.PI/180)*120}px,${Math.sin(j*30*Math.PI/180)*120}px)`;document.body.appendChild(f);setTimeout(()=>f.remove(),1500);}}
-  function createThread(x,y){let t=document.createElement('div');t.className='thread-trail';t.style.left=x+'px';t.style.top=y+'px';document.body.appendChild(t);setTimeout(()=>t.remove(),1000);}
-  const lion=document.getElementById('kingLion');setInterval(()=>{const r=lion.getBoundingClientRect();createThread(r.left+40,r.top+40);},100);
-  window.addEventListener('load',()=>{document.querySelectorAll('.fade-in').forEach((e,i)=>{setTimeout(()=>e.classList.add('show'),i*300);});setInterval(()=>{createKinzFirework(Math.random()*window.innerWidth,Math.random()*window.innerHeight*0.5);},3000);setTimeout(()=>{createKinzFirework(window.innerWidth/2,window.innerHeight/2.5);},1800);});
-  document.getElementById('collectionBtn').addEventListener('mouseenter',(e)=>{const r=e.target.getBoundingClientRect();const w=document.getElementById('whooshSound');w.volume=0.2;w.currentTime=0;w.play().catch(()=>{});createKinzFirework(r.left+r.width/2,r.top+r.height/2);});
-</script>
-   <script>
-function updateKinzTime() {
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-US', { 
-    hour: '2-digit', 
-    minute: '2-digit',
-    second:'2-digit',/*SECONDS ADDED HERE*/
-    hour12: true,
-    timeZone: 'Africa/Lagos'
-  });
-  document.getElementById('kinz-clock').innerHTML = time;
-}
-updateKinzTime();//run once immediately
-setInterval(updateKinzTime, 1000);
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if(top < window.innerHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    });
+
+    // CLOCK WITH SECONDS
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-NG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('clock').innerHTML = "Lagos Time: " + time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 </script>
 </body>
 </html>
