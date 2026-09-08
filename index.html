@@ -7,7 +7,7 @@
     <style>
         /* 1. ANIMATED BACKGROUND MOVEMENT */
         body {
-            background: linear-gradient(45deg, #000000, #D4AF37, #111, #D4AF37);
+            background: linear-gradient(45deg, #000, #D4AF37, #111, #D4AF37);
             background-size: 400% 400%;
             animation: gradientShift 18s ease infinite;
             color: white;
@@ -57,17 +57,22 @@
 </head>
 <body>
     
-    <!-- NAVBAR -->
-    <div style="background: rgba(0,0,0,0.8); padding: 20px; text-align: center; border-bottom: 2px solid #D4AF37; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);">
-        <img src="logo.png.jpg" alt="KINZ CATCHET" style="height: 50px; margin-bottom: 10px;">
-        <h1 style="margin: 0; font-size: 32px;">KINZ <span class="gold-text">CATCHET</span></h1>
-        <p class="gold-text" style="margin: 5px 0; font-size: 18px;">Luxury Nigerian Menswear</p>
-        <!-- CLOCK -->
-        <div id="clock" class="gold-text" style="font-size: 22px; font-weight: bold; margin-top: 10px;"></div>
+    <!-- NAVBAR WITH WELCOME MESSAGE + GOLD BACKGROUND -->
+    <div style="background: rgba(0,0,0,0.8); padding: 25px 20px; text-align: center; border-bottom: 2px solid #D4AF37; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);">
+        
+        <!-- WELCOME BOX WITH FITTING GOLD BACKGROUND -->
+        <div style="background: linear-gradient(135deg, #D4AF37, #B8860B); padding: 25px; border-radius: 20px; max-width: 650px; margin: 0 auto; border: 3px solid #FFF; box-shadow: 0 10px 30px rgba(212,175,55,0.5);" class="reveal">
+            <img src="logo.png.jpg" alt="KINZ CATCHET" style="height: 70px; margin-bottom: 12px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));">
+            <h1 style="margin: 0; font-size: 34px; color: #000; font-weight: 900;">KINZ <span style="color: #FFF;">CATCHET</span></h1>
+            <p style="margin: 8px 0; font-size: 18px; color: #000; font-weight: 700;">Luxury Nigerian Menswear</p>
+            <!-- 24HRS CLOCK -->
+            <div id="clock" style="font-size: 24px; font-weight: 900; margin-top: 12px; color: #000;"></div>
+        </div>
+        
     </div>
 
     <!-- BANNER SECTION -->
-    <div style="text-align: center; padding: 100px 20px; background: url('banner.jpg') no-repeat center center/cover; min-height: 90vh; display: flex; align-items: center; justify-content: center;">
+    <div style="text-align: center; padding: 100px 20px; background: url('banner.jpg') no-repeat center/cover; min-height: 90vh; display: flex; align-items: center; justify-content: center;">
         <div style="background: rgba(0,0,0,0.75); padding: 50px; border-radius: 20px; display: inline-block; border: 2px solid #D4AF37;" class="reveal">
             <h2 style="font-size: 48px; margin: 0;">Luxurious Senators. Premium Agbada.</h2>
             <p style="font-size: 22px; margin: 20px 0;">Handcrafted Excellence. Delivered Nationwide.</p>
@@ -171,11 +176,16 @@
         });
     });
 
-    // CLOCK WITH SECONDS
+    // CLOCK WITH 24HRS FORMAT
     function updateClock() {
         const now = new Date();
-        const time = now.toLocaleTimeString('en-NG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        document.getElementById('clock').innerHTML = "Lagos Time: " + time;
+        const time = now.toLocaleTimeString('en-NG', { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit',
+            hour12: false 
+        });
+        document.getElementById('clock').innerHTML = "Lagos: " + time;
     }
     setInterval(updateClock, 1000);
     updateClock();
